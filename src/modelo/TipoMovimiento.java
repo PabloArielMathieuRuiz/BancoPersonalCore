@@ -1,0 +1,8 @@
+package modelo;
+
+public enum TipoMovimiento {
+	INGRESO,
+	REINTEGRO,
+    TRANSFERENCIA_ENVIADA,
+    TRANSFERENCIA_RECIBIDA
+}

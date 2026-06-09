@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
  *         arrancar una ventana”.
  */
 public class VistaTransferencia {
+	@SuppressWarnings("unused")
 	private final GestorVistas gestor;
 	private final ControladorBanco controlador;
 	private final VBox root;
@@ -45,7 +46,7 @@ public class VistaTransferencia {
 	 */
 	public VistaTransferencia(GestorVistas gestor) {
 		this.gestor = gestor;
-		this.controlador = new ControladorBanco();
+		this.controlador = new ControladorBanco(null);
 
 		txtIban = new TextField();
 		txtIban.setPromptText("Introduce IBAN");

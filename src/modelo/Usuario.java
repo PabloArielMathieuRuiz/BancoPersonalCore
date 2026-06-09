@@ -12,15 +12,15 @@ public class Usuario {
 
 	private int idUsuario;
 	private String username;
-	private String contraseña;
+	private String password;
 	private Rol rol;
 	private int idCliente;
 	
-	public Usuario(int idUsuario, String username, String contraseña, Rol rol, int idCliente) {
+	public Usuario(int idUsuario, String username, String password, Rol rol, int idCliente) {
 
 		this.idUsuario = idUsuario;
 		this.username = username;
-		this.contraseña = contraseña;
+		this.password = password;
 		this.rol = rol;
 		this.idCliente = idCliente;
 
@@ -32,7 +32,7 @@ public class Usuario {
 		
 		this.idUsuario = 0;
 		this.username = "Sin nombre";
-		this.contraseña = "Sin contraseña";
+		this.password = "Sin contraseña";
 		this.rol = null;
 		this.idCliente = 0;
 		
@@ -54,10 +54,10 @@ public class Usuario {
 		this.username = username;
 	}
 	public String getContraseña() {
-		return contraseña;
+		return password;
 	}
 	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+		this.password = contraseña;
 	}
 	public Rol getRol() {
 		return rol;
@@ -77,7 +77,7 @@ public class Usuario {
 	public String toString() {
 	    return "Usuario {idUsuario='" + idUsuario 
 	    		+ "', username=" + username 
-	    		+ "', contraseña=" + contraseña 
+	    		+ "', contraseña=" + password 
 	    		+ "', rol=" + rol 
 	    		+ "', idCliente=" + idCliente 	
 	    		+ "}";

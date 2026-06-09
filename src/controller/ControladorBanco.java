@@ -1,10 +1,20 @@
-/**
+ /**
  * 
  */
 package controller;
 
 import services.GestorCuentas;
+import vista.VistaConsola;
 import services.GestorAutenticador;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import dao.CuentaDao;
+import dao.MovimientosDao;
+import excepciones.validacion.CuentaNullException;
+import modelo.Cuenta;
+import modelo.Movimiento;
 import modelo.Usuario;
 
 /**
@@ -17,12 +27,17 @@ public class ControladorBanco {
 	private GestorCuentas servicio;
 	private GestorAutenticador gestorAutenticador;
 	private Usuario usuarioActual;
+	private CuentaDao cuentaDao;
+	private VistaConsola vistaConsola;
+	private MovimientosDao movimientoDao;
 
-	public ControladorBanco() {
+	public ControladorBanco(VistaConsola vista) {
 		servicio = new GestorCuentas();
 		gestorAutenticador = new GestorAutenticador();
 		usuarioActual = new Usuario();
-
+		cuentaDao = new CuentaDao();
+		this.vistaConsola = vista; // este se inicaliza de esta manera para evitar que haya un error de bucle 
+		movimientoDao = new MovimientosDao();
 	}
 
 	/**
@@ -36,12 +51,8 @@ public class ControladorBanco {
 	 */
 	public Usuario validarLogin(String username, String contraseña) {
 
-		
 		usuarioActual = gestorAutenticador.autenticar(username, contraseña);
-		
-		
-		
-		
+
 		return usuarioActual;
 	}
 
@@ -60,5 +71,95 @@ public class ControladorBanco {
 		servicio.transferir(iban, importe);
 		return "Transferencia realizada correctamente.";
 	}
+	
+	public void ControlarOpcionesUsuario(int opcion) {
+		
+		boolean salir = false;
 
+		while (!salir) {
+
+
+			switch (opcion) {
+			case 1:
+				mostrarTodasLasCuentas();
+				break;
+			case 2:
+				mostrarTodosLosMovimientos();
+				break;
+			case 3:
+				vistaConsola.ingresarVista();
+				break;
+			case 4:
+				vistaConsola.retirarVista();
+				break;
+			case 5:
+				// TODO: Transferir
+				break;
+			case 0:
+				salir = true;
+				System.out.println("\n¡Gracias por usar nuestro sistema bancario!");
+				
+				break;
+			default:
+				System.out.println("\n✗ Opción no válida. Intente de nuevo.");
+			}
+		}
+		
+	}
+	
+	
+	public void mostrarTodasLasCuentas() {
+
+		List<Cuenta> lista = new ArrayList<>();
+
+		int id_cuenta = util.InputReader.readInt("¿Cual es su id de cliente?: ");
+
+		lista = cuentaDao.verTodasLasCuentas(id_cuenta);
+
+		vistaConsola.mostrarListaCuenta(lista);
+
+	}
+	
+	public void mostrarTodosLosMovimientos() {
+		
+
+		List<Movimiento> lista = new ArrayList<>();
+
+		int id_cuenta = util.InputReader.readInt("¿Cual se su id de cliente?: ");
+		
+		lista = movimientoDao.verTodosLosMovimientosPorIdCuenta(id_cuenta);
+
+		vistaConsola.mostrarListaMovimientos(lista);
+
+	}
+	
+	
+	public void ingresar(String iban, float cantidad) {
+
+		gestorAutenticador.auntetificarIngresar(iban, cantidad);
+
+		Cuenta cuenta = cuentaDao.obtenerCuentaPorIban(iban);
+
+		float nuevoSaldo = cuenta.getSaldo() + cantidad;
+
+		cuentaDao.actualizarSaldo(iban, nuevoSaldo);
+
+	}
+	
+	
+	public void retirar(String iban, float cantidad) {
+
+		Cuenta cuenta = cuentaDao.obtenerCuentaPorIban(iban);
+		if (cuenta == null) {
+			throw new CuentaNullException();
+		}
+
+		// Validación de saldo suficiente
+		if (cuenta.getSaldo() < cantidad) {
+			// llamada excepcion saldo insuficiente
+		}
+
+		float nuevoSaldo = cuenta.getSaldo() - cantidad;
+		cuentaDao.actualizarSaldo(iban, nuevoSaldo);
+	}
 }

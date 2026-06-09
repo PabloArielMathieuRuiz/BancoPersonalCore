@@ -3,10 +3,16 @@
  */
 package services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import dao.UsuarioDao;
 import excepciones.seguridad.CredencialesInvalidasException;
 import excepciones.seguridad.UsuarioNoRegistradoException;
+import excepciones.validacion.IbanInvalidoException;
+import excepciones.validacion.InputNoMenorQue0Exception;
 import modelo.Usuario;
+import util.GestorPassword;
 
 /**
  * Interpreta lo que devuelve el DAO, decide si es un error o exito. No imprime,
@@ -17,17 +23,14 @@ import modelo.Usuario;
 public class GestorAutenticador {
 
 	UsuarioDao usuarioDao;
+	private static final Logger logger = LoggerFactory.getLogger(GestorAutenticador.class);
 
 	public GestorAutenticador() {
-
-		usuarioDao = null;
-
+		usuarioDao = new UsuarioDao();
 	}
 
 	public GestorAutenticador(UsuarioDao usuarioDao) {
-
-		usuarioDao = new UsuarioDao();
-
+		this.usuarioDao = new UsuarioDao();
 	}
 
 	/**
@@ -37,19 +40,48 @@ public class GestorAutenticador {
 	 * @param contraseña Contraseña introducida
 	 * @return El usuario autenticado
 	 */
-	public Usuario autenticar(String username, String contraseña) {
+	public Usuario autenticar(String username, String password) {
 
-		Usuario user = usuarioDao.buscarPorUsername(username);
+		// normalizar aqui los datos
+
+		String usernameNormalizado = util.Formateador.normalizarUsername(username);
+		String passwordNormailizado = util.Formateador.normalizarPassword(password);
+
+		validation.ValidarUsername.validarUsername(usernameNormalizado);
+		validation.ValidarPassword.validarPassword(passwordNormailizado);
+
+		logger.info("Validando credenciales");
+		logger.info("Intento de login para username: '{}'", username);
+
+		Usuario user = usuarioDao.buscarPorUsername(usernameNormalizado);
 
 		if (user == null) {
 			throw new UsuarioNoRegistradoException(username);
 		}
 
-		if (!user.getContraseña().equals(contraseña)) {
-			
+		if (!GestorPassword.verificar(passwordNormailizado, user.getContraseña())) {
+
 			throw new CredencialesInvalidasException();
 		}
-		
+
 		return user;
 	}
+
+	public void auntetificarIngresar(String iban, float cantidad) {
+
+		if (iban == null) {
+			throw new IbanInvalidoException(iban);
+		}
+
+		if (!validation.ValidarIban.validarIban(iban)) {
+			throw new IbanInvalidoException(iban);
+		}
+		
+		
+		if (cantidad <0) {
+			throw new InputNoMenorQue0Exception();
+		}
+
+	}
+
 }

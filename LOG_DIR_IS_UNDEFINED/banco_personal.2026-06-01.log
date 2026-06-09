@@ -1,0 +1,96 @@
+2026-06-01 16:27:12 [main] ERROR handler.ErrorHandler - Error crítico inesperado detectado
+java.lang.NullPointerException: Cannot invoke "dao.UsuarioDao.buscarPorUsername(String)" because "this.usuarioDao" is null
+	at services.GestorAutenticador.autenticar(GestorAutenticador.java:42)
+	at controller.ControladorBanco.validarLogin(ControladorBanco.java:40)
+	at vista.VistaConsola.mostrarLogin(VistaConsola.java:68)
+	at vista.VistaConsola.iniciar(VistaConsola.java:32)
+	at lanzador.Main.main(Main.java:57)
+2026-06-01 16:57:40 [main] ERROR handler.ErrorHandler - Error crítico inesperado detectado
+java.lang.NullPointerException: Cannot invoke "dao.UsuarioDao.buscarPorUsername(String)" because "this.usuarioDao" is null
+	at services.GestorAutenticador.autenticar(GestorAutenticador.java:42)
+	at controller.ControladorBanco.validarLogin(ControladorBanco.java:40)
+	at vista.VistaConsola.mostrarLogin(VistaConsola.java:70)
+	at vista.VistaConsola.iniciar(VistaConsola.java:32)
+	at lanzador.Main.main(Main.java:57)
+2026-06-01 16:59:46 [main] ERROR handler.ErrorHandler - Error crítico inesperado detectado
+java.lang.NullPointerException: Cannot invoke "dao.UsuarioDao.buscarPorUsername(String)" because "this.usuarioDao" is null
+	at services.GestorAutenticador.autenticar(GestorAutenticador.java:42)
+	at controller.ControladorBanco.validarLogin(ControladorBanco.java:40)
+	at vista.VistaConsola.mostrarLogin(VistaConsola.java:70)
+	at vista.VistaConsola.iniciar(VistaConsola.java:32)
+	at lanzador.Main.main(Main.java:57)
+2026-06-01 17:01:20 [main] ERROR handler.ErrorHandler - Error crítico inesperado detectado
+java.lang.NullPointerException: Cannot invoke "dao.UsuarioDao.buscarPorUsername(String)" because "this.usuarioDao" is null
+	at services.GestorAutenticador.autenticar(GestorAutenticador.java:42)
+	at controller.ControladorBanco.validarLogin(ControladorBanco.java:40)
+	at vista.VistaConsola.mostrarLogin(VistaConsola.java:70)
+	at vista.VistaConsola.iniciar(VistaConsola.java:32)
+	at lanzador.Main.main(Main.java:57)
+2026-06-01 17:04:25 [main] ERROR handler.ErrorHandler - Error crítico inesperado detectado
+java.lang.NullPointerException: Cannot invoke "dao.UsuarioDao.buscarPorUsername(String)" because "this.usuarioDao" is null
+	at services.GestorAutenticador.autenticar(GestorAutenticador.java:42)
+	at controller.ControladorBanco.validarLogin(ControladorBanco.java:40)
+	at vista.VistaConsola.mostrarLogin(VistaConsola.java:70)
+	at vista.VistaConsola.iniciar(VistaConsola.java:32)
+	at lanzador.Main.main(Main.java:57)
+2026-06-01 17:07:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:12:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:14:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:14:52 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-01 17:14:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-01 17:14:52 [main] WARN  handler.ErrorHandler - Error de dominio [ERR_DB_01]: No se pudo establecer conexión con la base de datos.
+2026-06-01 17:23:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:23:04 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-01 17:23:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-01 17:23:04 [main] WARN  handler.ErrorHandler - Error de dominio [ERR_DB_01]: No se pudo establecer conexión con la base de datos.
+2026-06-01 17:33:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:33:32 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-01 17:33:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-01 17:33:32 [main] WARN  handler.ErrorHandler - Error de dominio [ERR_DB_01]: No se pudo establecer conexión con la base de datos.
+2026-06-01 17:36:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:36:04 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-01 17:36:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-01 17:36:04 [main] WARN  handler.ErrorHandler - Error de dominio [ERR_DB_01]: No se pudo establecer conexión con la base de datos.
+2026-06-01 17:39:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:39:35 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-01 17:39:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-01 17:39:35 [main] WARN  handler.ErrorHandler - Error de dominio [ERR_DB_01]: No se pudo establecer conexión con la base de datos.
+2026-06-01 17:44:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:44:27 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-01 17:44:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-01 17:44:27 [main] WARN  handler.ErrorHandler - Error de dominio [ERR_DB_01]: No se pudo establecer conexión con la base de datos.
+2026-06-01 17:46:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:46:54 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-01 17:46:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-01 17:46:54 [main] WARN  handler.ErrorHandler - Error de dominio [ERR_DB_01]: No se pudo establecer conexión con la base de datos.
+2026-06-01 17:52:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 17:52:57 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-01 17:52:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-01 18:17:34 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=24m11s185ms532µs200ns).
+2026-06-01 18:17:35 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=24m11s179ms822µs200ns).
+2026-06-01 18:17:38 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=24m11s178ms624µs500ns).
+2026-06-01 18:17:44 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=24m10s60ms122µs800ns).
+2026-06-01 18:17:45 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=24m10s59ms869µs100ns).
+2026-06-01 18:17:46 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=24m10s53ms886µs500ns).
+2026-06-01 18:17:46 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=24m10s63ms51µs900ns).
+2026-06-01 18:18:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-01 18:18:06 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-01 18:18:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-01 18:32:31 [main] WARN  handler.ErrorHandler - Error de dominio [EER_VAL_003]: El nombre de usuario no es valido
+2026-06-01 18:50:39 [main] WARN  handler.ErrorHandler - Error de dominio [EER_VAL_003]: El nombre de usuario no es valido
+2026-06-01 18:50:57 [main] WARN  handler.ErrorHandler - Error de dominio [EER_VAL_003]: El nombre de usuario no es valido
+2026-06-01 18:51:20 [main] WARN  handler.ErrorHandler - Error de dominio [EER_VAL_003]: El nombre de usuario no es valido
+2026-06-01 19:10:29 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=45s26ms451µs900ns).
+2026-06-01 19:10:31 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=45s36ms42µs700ns).
+2026-06-01 19:10:32 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=45s22ms960µs).
+2026-06-01 19:10:37 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=49s632ms348µs100ns).
+2026-06-01 19:10:54 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=49s626ms912µs800ns).
+2026-06-01 19:10:56 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=49s632ms542µs600ns).
+2026-06-01 19:10:59 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=49s631ms450µs200ns).
+2026-06-01 19:19:59 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=8m34s318ms525µs100ns).
+2026-06-01 19:20:00 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=8m34s312ms720µs100ns).
+2026-06-01 19:20:03 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=8m34s305ms112µs200ns).
+2026-06-01 19:20:08 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=8m34s305ms79µs900ns).
+2026-06-01 19:20:10 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=8m34s304ms810µs800ns).
+2026-06-01 19:20:11 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=8m34s303ms469µs200ns).
+2026-06-01 19:20:11 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=8m34s316ms872µs).

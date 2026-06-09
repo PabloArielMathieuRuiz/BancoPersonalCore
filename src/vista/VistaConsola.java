@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 
 import controller.ControladorBanco;
+import excepciones.persistencia.TransferenciaFallidaException;
 import handler.ErrorHandler;
 import modelo.Cuenta;
 import modelo.Movimiento;
@@ -152,6 +153,26 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 		controller.retirar(iban, cantidad);
 		
 	}
+	
+	public void transferirVista() {
+		
+		String ibanEmisor = util.InputReader.readString("¿Cual en el iban de la cuenta a emisora?: ");
+		
+		String ibanReceptor = util.InputReader.readString("¿Cual en el iban de la cuenta a receptora?: ");
+
+		float cantidad = util.InputReader.readFloat("¿Cual es la cantidad a retirar?: ");
+		
+		try {
+			controller.ejecutarTransferencia(ibanEmisor, ibanReceptor, cantidad);
+		} catch (Exception e) {
+			throw new TransferenciaFallidaException();
+		}
+		
+		
+	}
+	
+	
+	
 	
 	
 

@@ -7,10 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import dao.UsuarioDao;
+import excepciones.negocio.SaldoInsuficienteException;
 import excepciones.seguridad.CredencialesInvalidasException;
 import excepciones.seguridad.UsuarioNoRegistradoException;
 import excepciones.validacion.IbanInvalidoException;
 import excepciones.validacion.InputNoMenorQue0Exception;
+import modelo.Cuenta;
 import modelo.Usuario;
 import util.GestorPassword;
 
@@ -81,6 +83,29 @@ public class GestorAutenticador {
 		if (cantidad <0) {
 			throw new InputNoMenorQue0Exception();
 		}
+
+	}
+	
+	public void auntetificarRetirar(String iban, float cantidad, Cuenta cuenta) {
+
+		if (iban == null) {
+			throw new IbanInvalidoException(iban);
+		}
+
+		if (!validation.ValidarIban.validarIban(iban)) {
+			throw new IbanInvalidoException(iban);
+		}
+		
+		
+		if (cantidad <0) {
+			throw new InputNoMenorQue0Exception();
+		}
+		
+		if (cuenta.getSaldo() < cantidad) {
+			throw new SaldoInsuficienteException(cuenta.getSaldo() , cantidad);
+		}
+		
+		
 
 	}
 

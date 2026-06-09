@@ -14,7 +14,7 @@ public class SueldoInsuficienteException extends BancoException{
 
 	public SueldoInsuficienteException() {
 		
-		super("El saldo es menor que la cantidad que se quiere retirar.", "ERR_VAL_007");
+		super("El saldo del que dispone es menor que la cantidad que se quiere retirar.", "ERR_VAL_007");
 	}
 
 }

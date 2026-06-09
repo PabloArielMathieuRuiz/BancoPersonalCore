@@ -4,6 +4,7 @@
 package services;
 
 import dao.CuentaDao;
+import modelo.Cuenta;
 import validation.Validador;
 
 /**
@@ -17,10 +18,24 @@ import validation.Validador;
  */
 public class GestorCuentas {
 
-	private CuentaDao dao = new CuentaDao();
+	private CuentaDao cuentaDao = new CuentaDao();
 
-	public void transferir(String iban, double cantidad) {
-		Validador.validarIban(iban);
-		dao.actualizarSaldo(iban, cantidad);
+	public void transferir(String ibanEmisor,String ibanReceptor, float cantidad) {
+		Validador.validarIban(ibanEmisor);
+		Validador.validarIban(ibanReceptor);
+		
+		Cuenta cuentaRemitente = cuentaDao.obtenerCuentaPorIban(ibanEmisor);
+		Cuenta cuentaRepector = cuentaDao.obtenerCuentaPorIban(ibanReceptor);
+		
+		
+		float saldoEmisor = cuentaRemitente.getSaldo() - cantidad ;
+		float saldoReceptor = cuentaRepector.getSaldo() + cantidad ;
+		
+		
+
+		cuentaDao.actualizarSaldo(ibanEmisor, saldoEmisor);
+		cuentaDao.actualizarSaldo(ibanReceptor, saldoReceptor);
+
+		
 	}
 }

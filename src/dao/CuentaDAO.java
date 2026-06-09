@@ -29,13 +29,14 @@ public class CuentaDao {
 	// Logger profesional para esta clase
 	private static final Logger logger = LoggerFactory.getLogger(CuentaDao.class);
 
-	public void actualizarSaldo(String iban, double nuevoSaldo) {
+	public void actualizarSaldo(String iban, float nuevoSaldo) {
 		String sql = "UPDATE cuenta SET saldo = saldo + ? WHERE iban = ?";
 
 		// Uso de try-with-resources (fundamental en JDBC)
-		try (Connection con = HikariConexion.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+		try (Connection con = HikariConexion.getConnection(); 
+				PreparedStatement ps = con.prepareStatement(sql)) {
 
-			ps.setDouble(1, nuevoSaldo);
+			ps.setFloat(1, nuevoSaldo);
 			ps.setString(2, iban);
 			ps.executeUpdate();
 

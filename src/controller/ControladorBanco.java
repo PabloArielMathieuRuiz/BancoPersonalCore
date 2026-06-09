@@ -12,7 +12,6 @@ import java.util.List;
 
 import dao.CuentaDao;
 import dao.MovimientosDao;
-import excepciones.validacion.CuentaNullException;
 import modelo.Cuenta;
 import modelo.Movimiento;
 import modelo.Usuario;
@@ -65,10 +64,10 @@ public class ControladorBanco {
 	 * public void ejecutarTransferencia(String iban, double monto) {
 	 * servicio.transferir(iban, monto); }
 	 */
-	public String ejecutarTransferencia(String iban, double importe) throws Exception {
+	public String ejecutarTransferencia(String ibanEmisor,String ibanReceptor, float importe) throws Exception {
 		// gestor.validarImporte(importe);
 		// gestor.validarIban(iban);
-		servicio.transferir(iban, importe);
+		servicio.transferir(ibanEmisor, ibanReceptor, importe);
 		return "Transferencia realizada correctamente.";
 	}
 	
@@ -93,7 +92,7 @@ public class ControladorBanco {
 				vistaConsola.retirarVista();
 				break;
 			case 5:
-				// TODO: Transferir
+				vistaConsola.transferirVista();
 				break;
 			case 0:
 				salir = true;
@@ -136,9 +135,9 @@ public class ControladorBanco {
 	
 	public void ingresar(String iban, float cantidad) {
 
-		gestorAutenticador.auntetificarIngresar(iban, cantidad);
-
 		Cuenta cuenta = cuentaDao.obtenerCuentaPorIban(iban);
+
+		gestorAutenticador.auntetificarIngresar(iban, cantidad);
 
 		float nuevoSaldo = cuenta.getSaldo() + cantidad;
 
@@ -146,20 +145,18 @@ public class ControladorBanco {
 
 	}
 	
-	
 	public void retirar(String iban, float cantidad) {
 
 		Cuenta cuenta = cuentaDao.obtenerCuentaPorIban(iban);
-		if (cuenta == null) {
-			throw new CuentaNullException();
-		}
 
-		// Validación de saldo suficiente
-		if (cuenta.getSaldo() < cantidad) {
-			// llamada excepcion saldo insuficiente
-		}
+		gestorAutenticador.auntetificarRetirar(iban, cantidad, cuenta);
 
 		float nuevoSaldo = cuenta.getSaldo() - cantidad;
+
 		cuentaDao.actualizarSaldo(iban, nuevoSaldo);
 	}
 }
+
+
+
+

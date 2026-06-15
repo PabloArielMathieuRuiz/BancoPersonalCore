@@ -6,13 +6,14 @@ package vista;
 import java.util.List;
 import java.util.Scanner;
 
-
 import controller.ControladorBanco;
-import excepciones.persistencia.TransferenciaFallidaException;
 import handler.ErrorHandler;
+import modelo.Cliente;
 import modelo.Cuenta;
 import modelo.Movimiento;
+import modelo.Rol;
 import modelo.Usuario;
+import controller.ContrladorAdmin;
 
 /**
  * Único lugar con input/output
@@ -26,11 +27,14 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 
 	private ControladorBanco controller;
 	private Scanner sc;
+	private ContrladorAdmin contrladorAdmin;
 
 	public VistaConsola() {
 		// Pasamos 'this' (esta instancia de VistaConsola) al controlador
 		this.controller = new ControladorBanco(this);
 		sc = new Scanner(System.in);
+		// Pasamos 'this' (esta instancia de VistaConsola) al controlador
+		contrladorAdmin = new ContrladorAdmin(this);
 	}
 
 	public void iniciar() {
@@ -68,12 +72,18 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 			System.out.print("Password: ");
 			String password = sc.nextLine();
 
-
 			try {
 
 				Usuario user = controller.validarLogin(username, password);
 				loginCorrecto = true;
 				System.out.println("Bienvenido, " + user.getUsername() + " [" + user.getRol() + "]");
+				
+				if (user.getRol() == Rol.ADMIN) {
+				    mostrarMenuAdmin();
+				} else if (user.getRol() == Rol.CLIENTE) {
+				    mostrarMenu(); // Menú estándar para clientes
+				}
+				
 				mostrarMenu();
 
 			} catch (Exception e) {
@@ -88,24 +98,30 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 
 	public void mostrarMenu() {
 
-		System.out.println("=====================================");
-		System.out.println("        Menu Principal               ");
-		System.out.println("=====================================");
+		int opcion = -1;
+		boolean salir = false;
+		while (!salir) {
+			System.out.println("=====================================");
+			System.out.println("        Menu Principal               ");
+			System.out.println("=====================================");
 
-		System.out.println("1. Ver mis cuentas");
-		System.out.println("2. Ver movimientos");
-		System.out.println("3. Ingrear dinero");
-		System.out.println("4. Reintegrar dinero");
-		System.out.println("5. Transferir");
-		System.out.println("0. Cerrar sesion");
-		System.out.print("Introduzca su opcion: ");
-		int opcion = sc.nextInt();
-		
-		controller.ControlarOpcionesUsuario(opcion);
-		
-
+			System.out.println("1. Ver mis cuentas");
+			System.out.println("2. Ver movimientos");
+			System.out.println("3. Ingrear dinero");
+			System.out.println("4. Reintegrar dinero");
+			System.out.println("5. Transferir");
+			System.out.println("0. Cerrar sesion");
+			opcion = util.InputReader.readInt("Introduzca su opcion: ");
+			if (opcion == 0) {
+				salir = true;
+				System.out.println("¡Gracias!");
+			} else {
+				controller.ControlarOpcionesUsuario(opcion);
+			}
+			System.out.println("¡Gracias por usar nuestro sistema bancario!");
+		}
 	}
-	
+
 	public void mostrarListaCuenta(List<Cuenta> lista) {
 
 		if (lista.isEmpty()) {
@@ -120,7 +136,7 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 		}
 
 	}
-	
+
 	public void mostrarListaMovimientos(List<Movimiento> lista) {
 
 		if (lista.isEmpty()) {
@@ -135,50 +151,107 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 		}
 
 	}
-	
-	public void ingresarVista () {
-		
+
+	public void ingresarVista() {
+
 		String iban = util.InputReader.readString("¿Cual en el iban de la cuenta a ingresar?: ");
 		float cantidad = util.InputReader.readFloat("¿Cual es la cantidad a ingresar?: ");
-		
+
 		controller.ingresar(iban, cantidad);
-		
+
 	}
-	
-	public void retirarVista () {
-		
+
+	public void retirarVista() {
+
 		String iban = util.InputReader.readString("¿Cual en el iban de la cuenta a retirar?: ");
 		float cantidad = util.InputReader.readFloat("¿Cual es la cantidad a retirar?: ");
-		
+
 		controller.retirar(iban, cantidad);
-		
+
 	}
-	
+
 	public void transferirVista() {
-		
+
 		String ibanEmisor = util.InputReader.readString("¿Cual en el iban de la cuenta a emisora?: ");
-		
+
 		String ibanReceptor = util.InputReader.readString("¿Cual en el iban de la cuenta a receptora?: ");
 
 		float cantidad = util.InputReader.readFloat("¿Cual es la cantidad a retirar?: ");
-		
+
 		try {
 			controller.ejecutarTransferencia(ibanEmisor, ibanReceptor, cantidad);
 		} catch (Exception e) {
-			throw new TransferenciaFallidaException();
+			ErrorHandler.gestionar(e, this);
 		}
-		
-		
-	}
-	
-	
-	
-	
-	
 
+	}
+
+	public void mostrarMenuAdmin() {
+		int opcion = -1;
+		boolean salir = false;
+
+		while (!salir) {
+			System.out.println("=====================================");
+			System.out.println("        Menu Principal               ");
+			System.out.println("=====================================");
+
+			System.out.println("1. resumen global del banco");
+			System.out.println("2. listar todos los clientes");
+			System.out.println("3. clientes sin acceso digital");
+			System.out.println("4. cuentas de un cliente");
+			System.out.println("5. movimientos de una cuenta");
+			System.out.println("6. activar cuenta");
+			System.out.println("7. desactivar cuenta");
+			System.out.println("0. Cerrar sesion");
+
+			opcion = util.InputReader.readInt("Introduzca su opcion: ");
+			if (opcion == 0) {
+				salir = true;
+				System.out.println("¡Gracias!");
+			} else {
+				contrladorAdmin.ControlarOpcionesAdmin(opcion);
+			}
+		}
+	}
+
+	public void mostrarResumenGlobal(List<Usuario> listaUsuario, 
+			List<Cuenta> usuarioConAccesoDigital,
+			List<Cliente> usuarioSinAccesoDigital, 
+			List<Cuenta> cuentasActivas, 
+			float saldoTotal // hasta aqui son los
+							// parametros ya que es
+							// muy largo
+	) {
+
+		boolean salir = false;
+
+		while (!salir) {
+			System.out.println("=====================================");
+			System.out.print("clientes registrados: ");
+			System.out.println(listaUsuario.size());
+
+			System.out.print("con acceso digital: ");
+			System.out.println(usuarioConAccesoDigital.size());
+
+			System.out.print("sin acceso digitals: ");
+			System.out.println(usuarioSinAccesoDigital.size());
+
+			System.out.print("cuentas activas: ");
+			System.out.println(cuentasActivas.size());
+
+			System.out.print("saldo total en custodia: ");
+			System.out.println(saldoTotal);
+			System.out.println("=====================================");
+
+			salir = true;
+
+		}
+
+	}
 
 	@Override
 	public void mostrarError(String mensaje) {
 		System.err.println(">>> " + mensaje);
 	}
+
 }

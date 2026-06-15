@@ -1,6 +1,6 @@
- /**
- * 
- */
+/**
+* 
+*/
 package lanzador;
 
 import java.util.Scanner;
@@ -32,10 +32,6 @@ public class Main {
 			// configurator.doConfigure("src/logback.xml"); // O la ruta donde lo hayas
 			configurator.doConfigure("src/logback/logback.xml");
 
-			
-			
-			
-			
 		} catch (JoranException je) {
 			je.printStackTrace();
 		}
@@ -51,11 +47,12 @@ public class Main {
 		int opcion = sc.nextInt();
 
 		switch (opcion) {
-		case 1: 
+		case 1:
 			new VistaConsola().iniciar();
+			break;
 		case 2:
 			AppJavaFX.main(args);
-			
+			break;
 		default:
 			System.out.println("Opcion invalida");
 		}

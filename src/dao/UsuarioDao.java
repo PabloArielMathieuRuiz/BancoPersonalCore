@@ -6,7 +6,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,27 +40,18 @@ public class UsuarioDao {
 
 		String sql = "SELECT id, username, password, rol, id_cliente FROM usuario WHERE username = ?";
 
-		try (Connection con = HikariConexion.getConnection(); 
-				PreparedStatement ps = con.prepareStatement(sql)) {
-			
+		try (Connection con = HikariConexion.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 
 			ps.setString(1, username);
-			
+
 			try (ResultSet rs = ps.executeQuery()) {
 
-		
-				
 				if (rs.next()) {
 					// Encontrado: Mapeamos la fila al objeto Usuario
 
 					Usuario user = new Usuario();
 
-
-					user.setIdUsuario(rs.getInt("id"));
-					user.setUsername(rs.getString("username"));
-					user.setContraseña(rs.getString("password"));
-					user.setRol(Rol.valueOf(rs.getString("rol")));
-					user.setIdCliente(rs.getInt("id_cliente"));
+					user = mapearUsuario(rs);
 
 					return user;
 
@@ -79,34 +70,47 @@ public class UsuarioDao {
 		}
 
 	}
-	
+
 	public List<Usuario> verTodosLosUsuario() {
 
 		List<Usuario> lista = new ArrayList<>();
 
-		String sql = "SELECT idUsuario, username, password, rol, idCliente FROM cuenta";
+		String sql = "SELECT id, username, password, rol, id_cliente FROM usuario";
 
-		try (Connection con = HikariConexion.getConnection();
-				Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery(sql)) {
+		try (Connection con = HikariConexion.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 
-			while (rs.next()) {
+			try (ResultSet rs = ps.executeQuery()) {
 
-				int idUsuario = rs.getInt("idUsuario");
-				String username = rs.getString("username");
-				String password = rs.getString("password");
-				Rol rol = Rol.valueOf(rs.getString("rol"));
-				int idCliente = rs.getInt("idCliente");
+				while (rs.next()) {
 
-				lista.add(new Usuario(idUsuario, username, password, rol, idCliente));
+					lista.add(mapearUsuario(rs));
 
+				}
+
+			} catch (Exception e) {
+				System.err.println("Error en verTodosLosUsuario: " + e.getMessage());
 			}
 
-		} catch (Exception e) {
-			System.err.println("Error en listarTodos(): " + e.getMessage());
+		} catch (SQLException e1) {
+			e1.printStackTrace();
 		}
-
 		return lista;
+
+	}
+
+	private Usuario mapearUsuario(ResultSet rs) throws SQLException {
+
+		Usuario usuario = new Usuario();
+
+		int idUsuario = rs.getInt("id");
+		String username = rs.getString("username");
+		String password = rs.getString("password");
+		Rol rol = Rol.valueOf(rs.getString("rol"));
+		int idCliente = rs.getInt("id_cliente");
+
+		usuario = new Usuario(idUsuario, username, password, rol, idCliente);
+
+		return usuario;
 	}
 
 }

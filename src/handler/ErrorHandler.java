@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import excepciones.base.BancoException;
 
-
 /**
  * Este es el componente que centraliza el tratamiento de errores.
  * 

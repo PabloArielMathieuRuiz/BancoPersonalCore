@@ -9,7 +9,7 @@ import java.time.LocalDate;
  * 
  */
 public class Cuenta {
-	
+
 	private int id;
 	private String iban;
 	private TipoCuenta tipo;
@@ -17,38 +17,31 @@ public class Cuenta {
 	private LocalDate fecha_apertura;
 	private boolean activa;
 	private int id_cliente;
-	
-	public Cuenta(int id, String iban, TipoCuenta tipo, float saldo, LocalDate fecha_apertura, boolean activa, int id_cliente) {  
-	
-		this.id = id ;
-		this.iban =  iban;
-		this.tipo =  tipo;
-		this.saldo = saldo ;
-		this.fecha_apertura = fecha_apertura ;
-		this.activa =  activa;
-		this.id_cliente = id_cliente ;
-		
-		
+
+	public Cuenta(int id, String iban, TipoCuenta tipo, float saldo, LocalDate fecha_apertura, boolean activa,
+			int id_cliente) {
+
+		this.id = id;
+		this.iban = iban;
+		this.tipo = tipo;
+		this.saldo = saldo;
+		this.fecha_apertura = fecha_apertura;
+		this.activa = activa;
+		this.id_cliente = id_cliente;
+
 	}
 
-	public Cuenta () {
-		
-		this.id = 0 ;
-		this.iban = "Sin nombre" ;
+	public Cuenta() {
+
+		this.id = 0;
+		this.iban = "Sin nombre";
 		this.tipo = null;
 		this.saldo = 0.0f;
 		this.fecha_apertura = null;
-		this.activa = false ;
+		this.activa = false;
 		this.id_cliente = 0;
-		
-		
-		
+
 	}
-	
-	
-	
-	
-	
 
 	public int getId() {
 		return id;
@@ -108,17 +101,9 @@ public class Cuenta {
 
 	@Override
 	public String toString() {
-	    return "Usuario {id='" + id 
-	    		+ "', iban=" + iban 
-	    		+ "', tipo=" + tipo 
-	    		+ "', saldo=" + saldo 
-	    		+ "', fecha_apertura=" + fecha_apertura
-	    		+ "', activa=" + activa 
-	    		+ "', id_cliente=" + id_cliente
-	    		+ "}";
-	   
+		return "Usuario {id='" + id + "', iban=" + iban + "', tipo=" + tipo + "', saldo=" + saldo + "', fecha_apertura="
+				+ fecha_apertura + "', activa=" + activa + "', id_cliente=" + id_cliente + "}";
+
 	}
-
-
 
 }

@@ -10,6 +10,5 @@ package modelo;
 
 public enum Rol {
 
-	CLIENTE, 
-	ADMIN
+	CLIENTE, ADMIN
 }

@@ -1,6 +1,6 @@
- /**
- * 
- */
+/**
+* 
+*/
 package controller;
 
 import services.GestorCuentas;
@@ -14,6 +14,7 @@ import dao.CuentaDao;
 import dao.MovimientosDao;
 import modelo.Cuenta;
 import modelo.Movimiento;
+import modelo.TipoMovimiento;
 import modelo.Usuario;
 
 /**
@@ -35,7 +36,7 @@ public class ControladorBanco {
 		gestorAutenticador = new GestorAutenticador();
 		usuarioActual = new Usuario();
 		cuentaDao = new CuentaDao();
-		this.vistaConsola = vista; // este se inicaliza de esta manera para evitar que haya un error de bucle 
+		this.vistaConsola = vista; // este se inicaliza de esta manera para evitar que haya un error de bucle
 		movimientoDao = new MovimientosDao();
 	}
 
@@ -44,7 +45,7 @@ public class ControladorBanco {
 	 * usuario en sesion y lo devuelve si falla, el swervicio lanza la excepcion
 	 * corresopndiente y este metodo no lo captura: la sub directemente a la vista
 	 * 
-	 * @param username Nombre del usuario
+	 * @param username   Nombre del usuario
 	 * @param contraseña Contraseña del usuario
 	 * @return Usuario autenticado
 	 */
@@ -64,49 +65,39 @@ public class ControladorBanco {
 	 * public void ejecutarTransferencia(String iban, double monto) {
 	 * servicio.transferir(iban, monto); }
 	 */
-	public String ejecutarTransferencia(String ibanEmisor,String ibanReceptor, float importe) throws Exception {
+	public String ejecutarTransferencia(String ibanEmisor, String ibanReceptor, float importe) throws Exception {
 		// gestor.validarImporte(importe);
 		// gestor.validarIban(iban);
 		servicio.transferir(ibanEmisor, ibanReceptor, importe);
 		return "Transferencia realizada correctamente.";
 	}
-	
+
 	public void ControlarOpcionesUsuario(int opcion) {
-		
-		boolean salir = false;
 
-		while (!salir) {
-
-
-			switch (opcion) {
-			case 1:
-				mostrarTodasLasCuentas();
-				break;
-			case 2:
-				mostrarTodosLosMovimientos();
-				break;
-			case 3:
-				vistaConsola.ingresarVista();
-				break;
-			case 4:
-				vistaConsola.retirarVista();
-				break;
-			case 5:
-				vistaConsola.transferirVista();
-				break;
-			case 0:
-				salir = true;
-				System.out.println("\n¡Gracias por usar nuestro sistema bancario!");
-				
-				break;
-			default:
-				System.out.println("\n✗ Opción no válida. Intente de nuevo.");
-			}
+		switch (opcion) {
+		case 1:
+			mostrarTodasLasCuentas();
+			break;
+		case 2:
+			mostrarTodosLosMovimientos();
+			break;
+		case 3:
+			vistaConsola.ingresarVista();
+			break;
+		case 4:
+			vistaConsola.retirarVista();
+			break;
+		case 5:
+			vistaConsola.transferirVista();
+			break;
+		case 0:
+			System.out.println("\n¡Gracias por usar nuestro sistema bancario!");
+			break;
+		default:
+			System.out.println("\n✗ Opción no válida. Intente de nuevo.");
 		}
-		
 	}
-	
-	
+
 	public void mostrarTodasLasCuentas() {
 
 		List<Cuenta> lista = new ArrayList<>();
@@ -118,21 +109,19 @@ public class ControladorBanco {
 		vistaConsola.mostrarListaCuenta(lista);
 
 	}
-	
+
 	public void mostrarTodosLosMovimientos() {
-		
 
 		List<Movimiento> lista = new ArrayList<>();
 
 		int id_cuenta = util.InputReader.readInt("¿Cual se su id de cliente?: ");
-		
+
 		lista = movimientoDao.verTodosLosMovimientosPorIdCuenta(id_cuenta);
 
 		vistaConsola.mostrarListaMovimientos(lista);
 
 	}
-	
-	
+
 	public void ingresar(String iban, float cantidad) {
 
 		Cuenta cuenta = cuentaDao.obtenerCuentaPorIban(iban);
@@ -142,9 +131,11 @@ public class ControladorBanco {
 		float nuevoSaldo = cuenta.getSaldo() + cantidad;
 
 		cuentaDao.actualizarSaldo(iban, nuevoSaldo);
+		
+		movimientoDao.crearMovimientos(TipoMovimiento.INGRESO, cantidad, nuevoSaldo, "Ingreso Facil", cuenta.getId());
 
 	}
-	
+
 	public void retirar(String iban, float cantidad) {
 
 		Cuenta cuenta = cuentaDao.obtenerCuentaPorIban(iban);
@@ -154,9 +145,8 @@ public class ControladorBanco {
 		float nuevoSaldo = cuenta.getSaldo() - cantidad;
 
 		cuentaDao.actualizarSaldo(iban, nuevoSaldo);
+		
+		movimientoDao.crearMovimientos(TipoMovimiento.INGRESO, cantidad, nuevoSaldo, "Retiro Facil", cuenta.getId());
+
 	}
 }
-
-
-
-

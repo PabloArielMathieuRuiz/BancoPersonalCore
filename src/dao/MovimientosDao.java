@@ -34,18 +34,33 @@ public class MovimientosDao {
 
 				while (rs.next()) {
 
-					int id = rs.getInt("id");
-					TipoMovimiento tipo = TipoMovimiento.valueOf(rs.getString("tipo"));
-					float importe = rs.getFloat("importe");
-					float saldo_resultante = rs.getFloat("saldo_resultante");
-					LocalDate fecha_operacion = rs.getObject("fecha_operacion", LocalDate.class);
-					;
-					String descripcion = rs.getString("descripcion");
-					int id_cuenta_origen = rs.getInt("id_cuenta_origen");
-					int id_cuenta_destino = rs.getInt("id_cuenta_destino");
+					lista.add(mapearMovimiento(rs));
+				}
 
-					lista.add(new Movimiento(id, tipo, importe, saldo_resultante, fecha_operacion, descripcion,
-							id_cuenta_origen, id_cuenta_destino));
+			} catch (Exception e) {
+				System.err.println("Error en listarTodos(): " + e.getMessage());
+			}
+
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+
+		return lista;
+	}
+
+	public List<Movimiento> verTodosLosMovimientos() {
+
+		List<Movimiento> lista = new ArrayList<>();
+
+		String sql = "SELECT id, tipo, importe, saldo_resultante, fecha_operacion, descripcion, id_cuenta_origen, id_cuenta_destino FROM movimiento;";
+
+		try (Connection con = HikariConexion.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+			try (ResultSet rs = ps.executeQuery()) {
+
+				while (rs.next()) {
+
+					lista.add(mapearMovimiento(rs));
 
 				}
 
@@ -59,9 +74,9 @@ public class MovimientosDao {
 
 		return lista;
 	}
-	
-	
-	public void crearMovimientos(TipoMovimiento tipo, float importe, float saldo_resultante, String descripcion, int id_cuenta_origen) {
+
+	public void crearMovimientos(TipoMovimiento tipo, float importe, float saldo_resultante, String descripcion,
+			int id_cuenta_origen) {
 
 		String sql = "INSERT INTO movimiento (tipo, importe, saldo_resultante, id_cuenta_origen, id_cuenta_destino, descripcion) VALUES\r\n"
 				+ "    (?, ?, ?, ?, NULL, ?);";
@@ -82,7 +97,13 @@ public class MovimientosDao {
 		}
 	}
 
-	public void crearMovimientosTransferencia(TipoMovimiento tipo, float importe, float saldo_resultante, String descripcion, int id_cuenta_origen, int id_cuenta_destino) {
+	public void crearMovimientosTransferencia(
+			TipoMovimiento tipo, 
+			float importe, 
+			float saldo_resultante,
+			String descripcion, 
+			int id_cuenta_origen, 
+			int id_cuenta_destino) {
 
 		String sql = "INSERT INTO movimiento (tipo, importe, saldo_resultante, id_cuenta_origen, id_cuenta_destino, descripcion) VALUES\r\n"
 				+ "    (?, ?, ?, ?, ?, ?);";
@@ -102,6 +123,25 @@ public class MovimientosDao {
 
 			e.printStackTrace();
 		}
+	}
+
+	private Movimiento mapearMovimiento(ResultSet rs) throws SQLException {
+
+		Movimiento movimiento = new Movimiento();
+
+		int id = rs.getInt("id");
+		TipoMovimiento tipo = TipoMovimiento.valueOf(rs.getString("tipo"));
+		float importe = rs.getFloat("importe");
+		float saldo_resultante = rs.getFloat("saldo_resultante");
+		LocalDate fecha_operacion = rs.getObject("fecha_operacion", LocalDate.class);
+		String descripcion = rs.getString("descripcion");
+		int id_cuenta_origen = rs.getInt("id_cuenta_origen");
+		int id_cuenta_destino = rs.getInt("id_cuenta_destino");
+
+		movimiento = new Movimiento(id, tipo, importe, saldo_resultante, fecha_operacion, descripcion, id_cuenta_origen,
+				id_cuenta_destino);
+
+		return movimiento;
 	}
 
 }

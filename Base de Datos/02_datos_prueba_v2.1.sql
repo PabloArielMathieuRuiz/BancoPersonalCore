@@ -37,8 +37,7 @@ INSERT INTO cliente (nombre, apellidos, dni, email, telefono) VALUES
     ('Sofia',   'Jimenez Rubio',   '44444444D', 'sofia.jimenez@mail.com',  '644000004'),
     ('Marta',   'Vidal Torres',    '55555555E', 'marta.vidal@mail.com',    '655000005');
 
-
-
+	SELECT id, iban, tipo, saldo, fecha_apertura, activa, id_cliente FROM cuenta where id_cliente = 1;
 -- ============================================================
 --  PASO 2 — Usuarios
 --
@@ -105,6 +104,7 @@ INSERT INTO usuario (username, password, rol, id_cliente) VALUES
 -- ============================================================
 --  PASO 3 — Cuentas
 -- ============================================================
+Select * from cuenta;
 INSERT INTO cuenta (iban, tipo, saldo, id_cliente) VALUES
 
     ('ES91 2100 0418 4502 0005 1332', 'CORRIENTE', 0.00,

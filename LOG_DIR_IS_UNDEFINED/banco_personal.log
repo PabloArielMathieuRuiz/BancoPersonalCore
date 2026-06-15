@@ -1,85 +1,92 @@
-2026-06-08 17:10:21 [main] ERROR handler.ErrorHandler - Error crítico inesperado detectado
-java.lang.NullPointerException: Cannot invoke "controller.ControladorBanco.validarLogin(String, String)" because "this.controller" is null
-	at vista.VistaConsola.mostrarLogin(VistaConsola.java:71)
-	at vista.VistaConsola.iniciar(VistaConsola.java:35)
-	at lanzador.Main.main(Main.java:55)
-2026-06-08 17:10:44 [main] ERROR handler.ErrorHandler - Error crítico inesperado detectado
-java.lang.NullPointerException: Cannot invoke "controller.ControladorBanco.validarLogin(String, String)" because "this.controller" is null
-	at vista.VistaConsola.mostrarLogin(VistaConsola.java:71)
-	at vista.VistaConsola.iniciar(VistaConsola.java:35)
-	at lanzador.Main.main(Main.java:55)
-2026-06-08 17:20:23 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:20:23 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:20:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:20:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:20:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:21:25 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:21:25 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:21:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:21:25 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:21:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:23:25 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:23:25 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:23:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:23:25 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:23:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:26:48 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:26:48 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:26:48 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:26:48 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:26:48 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:27:53 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:27:53 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:27:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:27:53 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:27:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:28:44 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:28:44 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:28:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:28:44 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:28:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:40:40 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:40:40 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:40:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:40:40 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:40:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:42:28 [main] WARN  handler.ErrorHandler - Error de dominio [ERR_VAL_005]: La cuenta no puede ser nula.
-2026-06-08 17:50:51 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:50:51 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:50:51 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:50:51 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:50:51 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:51:44 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:51:44 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:51:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:51:44 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:51:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:54:08 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:54:08 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:54:08 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:54:08 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:54:08 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:58:35 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:58:35 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:58:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:58:35 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:58:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 17:59:34 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 17:59:34 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 17:59:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 17:59:34 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 17:59:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 18:00:22 [main] INFO  services.GestorAutenticador - Validando credenciales
-2026-06-08 18:00:22 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
-2026-06-08 18:00:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
-2026-06-08 18:00:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@795509d9
-2026-06-08 18:00:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
-2026-06-08 18:27:56 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=23m11s39ms745µs800ns).
-2026-06-08 18:28:00 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=23m11s32ms424µs400ns).
-2026-06-08 18:28:03 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=23m11s37ms414µs200ns).
-2026-06-08 18:28:05 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=23m11s37ms854µs900ns).
-2026-06-08 18:28:05 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=23m11s37ms908µs900ns).
-2026-06-08 18:28:07 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=23m11s29ms135µs500ns).
-2026-06-08 18:28:07 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=23m11s35ms77µs700ns).
-2026-06-08 18:28:15 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=23m11s33ms536µs100ns).
-2026-06-08 18:28:16 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=23m11s34ms918µs200ns).
+2026-06-13 11:34:19 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 11:34:19 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 11:34:19 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 11:34:19 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@645aa696
+2026-06-13 11:34:19 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 11:43:54 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 11:43:54 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 11:43:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 11:43:54 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 11:43:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 11:48:21 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 11:48:21 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 11:48:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 11:48:21 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 11:48:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 11:53:32 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 11:53:32 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 11:53:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 11:53:32 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 11:53:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 12:03:03 [main] WARN  handler.ErrorHandler - Error de dominio [EER_VAL_004]: La contraseña no es valida
+2026-06-13 12:03:13 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 12:03:13 [main] INFO  services.GestorAutenticador - Intento de login para username: 'Carlos'
+2026-06-13 12:03:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 12:03:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a7442c7
+2026-06-13 12:03:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 12:07:01 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 12:07:01 [main] INFO  services.GestorAutenticador - Intento de login para username: 'Carlos'
+2026-06-13 12:07:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 12:07:01 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 12:07:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 12:09:00 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 12:09:00 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 12:09:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 12:09:01 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 12:09:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 12:21:24 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=3m32s560ms961µs500ns).
+2026-06-13 12:21:43 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=3m42s425ms57µs900ns).
+2026-06-13 12:21:44 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=3m42s422ms631µs800ns).
+2026-06-13 12:52:39 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 12:52:39 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 12:52:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 12:52:40 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 12:52:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 12:54:02 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 12:54:02 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 12:54:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 12:54:02 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 12:54:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 13:01:52 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 13:01:52 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 13:01:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 13:01:52 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 13:01:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 13:16:37 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=4m52s834ms388µs400ns).
+2026-06-13 13:16:45 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=4m52s828ms711µs300ns).
+2026-06-13 13:16:48 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=4m52s824ms757µs).
+2026-06-13 13:17:03 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=4m52s831ms555µs500ns).
+2026-06-13 13:44:34 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 13:44:34 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 13:44:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 13:44:34 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 13:44:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 13:44:34 [main] WARN  handler.ErrorHandler - Error de dominio [Err_AUTH_001]: Usuario o contraseña incorrectos
+2026-06-13 13:44:45 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 13:44:45 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-13 13:44:45 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 13:44:45 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 13:44:45 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 13:45:43 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 13:45:43 [main] INFO  services.GestorAutenticador - Intento de login para username: 'admin'
+2026-06-13 13:45:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 13:45:43 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 13:45:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 13:46:32 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 13:46:32 [main] INFO  services.GestorAutenticador - Intento de login para username: 'admin'
+2026-06-13 13:46:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 13:46:33 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 13:46:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 13:47:47 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 13:47:47 [main] INFO  services.GestorAutenticador - Intento de login para username: 'admin'
+2026-06-13 13:47:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 13:47:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 13:47:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-13 13:47:47 [main] WARN  handler.ErrorHandler - Error de dominio [Err_AUTH_001]: Usuario o contraseña incorrectos
+2026-06-13 13:48:33 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 13:48:33 [main] INFO  services.GestorAutenticador - Intento de login para username: 'admin'
+2026-06-13 13:51:23 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-13 13:51:23 [main] INFO  services.GestorAutenticador - Intento de login para username: 'admin'
+2026-06-13 13:51:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-13 13:51:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@53045c6c
+2026-06-13 13:51:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.

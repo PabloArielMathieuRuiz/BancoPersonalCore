@@ -78,14 +78,13 @@ public class GestorAutenticador {
 		if (!validation.ValidarIban.validarIban(iban)) {
 			throw new IbanInvalidoException(iban);
 		}
-		
-		
-		if (cantidad <0) {
+
+		if (cantidad < 0) {
 			throw new InputNoMenorQue0Exception();
 		}
 
 	}
-	
+
 	public void auntetificarRetirar(String iban, float cantidad, Cuenta cuenta) {
 
 		if (iban == null) {
@@ -95,17 +94,14 @@ public class GestorAutenticador {
 		if (!validation.ValidarIban.validarIban(iban)) {
 			throw new IbanInvalidoException(iban);
 		}
-		
-		
-		if (cantidad <0) {
+
+		if (cantidad < 0) {
 			throw new InputNoMenorQue0Exception();
 		}
-		
+
 		if (cuenta.getSaldo() < cantidad) {
-			throw new SaldoInsuficienteException(cuenta.getSaldo() , cantidad);
+			throw new SaldoInsuficienteException(cuenta.getSaldo(), cantidad);
 		}
-		
-		
 
 	}
 

@@ -105,6 +105,12 @@ CREATE TABLE usuario (
 --    Borrar una cuenta con movimientos está impedido por la FK
 --    de la tabla movimiento (ON DELETE RESTRICT).
 -- ============================================================
+
+SELECT id, iban, tipo, saldo, fecha_apertura, activa, id_cliente FROM cuenta where activa = 1;
+SELECT id, iban, tipo, saldo, fecha_apertura, activa, id_cliente FROM cuenta where activa = 0;
+
+
+UPDATE cuenta SET activa = 1 WHERE id = 1;
 CREATE TABLE cuenta (
     id              INT             NOT NULL AUTO_INCREMENT,
     iban            VARCHAR(34)     NOT NULL,
@@ -179,6 +185,8 @@ CREATE TABLE cuenta (
 --      Representa "transferencia enviada a una cuenta ya cerrada".
 --      Es información válida: la operación ocurrió.
 -- ============================================================
+
+ 
 CREATE TABLE movimiento (
     id                  INT             NOT NULL AUTO_INCREMENT,
     tipo                ENUM('INGRESO','REINTEGRO',
@@ -190,7 +198,7 @@ CREATE TABLE movimiento (
     descripcion         VARCHAR(255),
     id_cuenta_origen    INT             NOT NULL,
     id_cuenta_destino   INT,            -- NULL en ingresos y reintegros
-
+	
     CONSTRAINT pk_movimiento             PRIMARY KEY (id),
 
     CONSTRAINT fk_mov_cuenta_origen

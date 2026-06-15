@@ -33,7 +33,6 @@ public class Movimiento {
 
 	}
 
-
 	public Movimiento() {
 
 		this.id = 0;
@@ -113,15 +112,9 @@ public class Movimiento {
 
 	@Override
 	public String toString() {
-	    return "Usuario {id='" + id 
-	    		+ "', tipo=" + tipo 
-	    		+ "', importe=" + importe 
-	    		+ "', saldo_resultante=" + saldo_resultante 
-	    		+ "', fecha_operacion=" + fecha_operacion
-	    		+ "', descripcion=" + descripcion 
-	    		+ "', id_cuenta_origen=" + id_cuenta_origen
-	    		+ "', id_cuenta_destino=" + id_cuenta_destino
-	    		+ "}";
-	   
+		return "Usuario {id='" + id + "', tipo=" + tipo + "', importe=" + importe + "', saldo_resultante="
+				+ saldo_resultante + "', fecha_operacion=" + fecha_operacion + "', descripcion=" + descripcion
+				+ "', id_cuenta_origen=" + id_cuenta_origen + "', id_cuenta_destino=" + id_cuenta_destino + "}";
+
 	}
 }

@@ -19,12 +19,20 @@ public class InputReader {
 	 * @return
 	 */
 	public static int readInt(String input) {
-		System.out.print(input);
-		while (!scanner.hasNextInt()) { // Mientras no sea entero, pide de nuevo
-			System.out.print("Valor inválido. Intente de nuevo: ");
-			scanner.next(); // Limpia el dato incorrecto
+		int valor = 0;
+		boolean valido = false;
+		while (!valido) {
+			System.out.print(input);
+			if (scanner.hasNextInt()) {
+				valor = scanner.nextInt();
+				scanner.nextLine(); // Consume el salto de línea residual
+				valido = true;
+			} else {
+				System.out.println("Error: Debes introducir un número entero.");
+				scanner.nextLine(); // Limpia la entrada errónea completa
+			}
 		}
-		return scanner.nextInt();
+		return valor;
 	}
 
 	/**
@@ -34,12 +42,20 @@ public class InputReader {
 	 * @return
 	 */
 	public static double readDouble(String input) {
-		System.out.print(input);
-		while (!scanner.hasNextDouble()) {
-			System.out.print("Valor inválido. Intente de nuevo: ");
-			scanner.next();
+		double valor = 0;
+		boolean valido = false;
+		while (!valido) {
+			System.out.print(input);
+			if (scanner.hasNextDouble()) {
+				valor = scanner.nextDouble();
+				scanner.nextLine(); // Consume el salto de línea residual
+				valido = true;
+			} else {
+				System.out.println("Error: Debes introducir un número decimal.");
+				scanner.nextLine(); // Limpia la entrada errónea completa
+			}
 		}
-		return scanner.nextDouble();
+		return valor;
 	}
 
 	/**
@@ -50,22 +66,30 @@ public class InputReader {
 	 */
 	public static String readString(String input) {
 		System.out.print(input);
-		return scanner.next();
+		return scanner.nextLine(); // Lee toda la línea evitando problemas de buffer
 	}
-	
+
 	/**
 	 * Lee un entero desde teclado con validación.
 	 * 
 	 * @param input
 	 * @return
 	 */
-	
+
 	public static float readFloat(String input) {
-		System.out.print(input);
-		while (!scanner.hasNextFloat()) { // Mientras no sea entero, pide de nuevo
-			System.out.print("Valor inválido. Intente de nuevo: ");
-			scanner.next(); // Limpia el dato incorrecto
+		float valor = 0;
+		boolean valido = false;
+		while (!valido) {
+			System.out.print(input);
+			if (scanner.hasNextFloat()) {
+				valor = scanner.nextFloat();
+				scanner.nextLine(); // Consume el salto de línea residual
+				valido = true;
+			} else {
+				System.out.println("Error: Debes introducir un número decimal.");
+				scanner.nextLine(); // Limpia la entrada errónea completa
+			}
 		}
-		return scanner.nextFloat();
+		return valor;
 	}
 }

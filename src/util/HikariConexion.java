@@ -16,10 +16,6 @@ import com.zaxxer.hikari.HikariDataSource;
 public class HikariConexion {
 	private static HikariDataSource ds = null;
 
-
-
-	
-
 	static {
 		try {
 			HikariConfig config = new HikariConfig();

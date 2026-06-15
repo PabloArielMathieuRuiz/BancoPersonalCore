@@ -83,9 +83,11 @@ public class VistaTransferencia {
 	 */
 	private void procesarTransferencia() {
 		try {
-			String iban = txtIban.getText();
-			double importe = Double.parseDouble(txtImporte.getText());
-			String resultado = controlador.ejecutarTransferencia(iban, importe);
+			String ibanEmisor = txtIban.getText();
+			String ibanReceptor = txtIban.getText();
+			float importe = Float.parseFloat(txtImporte.getText());
+
+			String resultado = controlador.ejecutarTransferencia(ibanEmisor, ibanReceptor, importe);
 			lblEstado.setText(resultado);
 		} catch (NumberFormatException ex) {
 			mostrarError("El importe debe ser numérico.");

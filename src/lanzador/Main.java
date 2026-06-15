@@ -1,6 +1,6 @@
 /**
- * 
- */
+* 
+*/
 package lanzador;
 
 import java.util.Scanner;
@@ -23,7 +23,6 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		// FORZAR CARGA DE LOGBACK
 		LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
 		try {
@@ -33,10 +32,6 @@ public class Main {
 			// configurator.doConfigure("src/logback.xml"); // O la ruta donde lo hayas
 			configurator.doConfigure("src/logback/logback.xml");
 
-			
-			
-			
-			
 		} catch (JoranException je) {
 			je.printStackTrace();
 		}
@@ -49,12 +44,17 @@ public class Main {
 		System.out.println("2. Interfaz gráfica");
 		System.out.print("Opción: ");
 
-		String opcion = sc.nextLine();
+		int opcion = sc.nextInt();
 
-		if ("2".equals(opcion)) {
-			AppJavaFX.main(args);
-		} else {
+		switch (opcion) {
+		case 1:
 			new VistaConsola().iniciar();
+			break;
+		case 2:
+			AppJavaFX.main(args);
+			break;
+		default:
+			System.out.println("Opcion invalida");
 		}
 
 		sc.close();

@@ -14,7 +14,6 @@ public class FormatoPasswordInvalidoException extends BancoException {
 
 	public FormatoPasswordInvalidoException() {
 		super("La contraseña no es valida", "EER_VAL_004");
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

@@ -1,0 +1,10 @@
+2026-06-05 15:23:47 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-05 15:23:47 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-05 15:23:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-05 15:23:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@cc43f62
+2026-06-05 15:23:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-05 15:24:33 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-05 15:24:33 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-05 15:24:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-05 15:24:33 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@19e4653c
+2026-06-05 15:24:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.

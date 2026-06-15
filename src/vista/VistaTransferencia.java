@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
  *         arrancar una ventana”.
  */
 public class VistaTransferencia {
+	@SuppressWarnings("unused")
 	private final GestorVistas gestor;
 	private final ControladorBanco controlador;
 	private final VBox root;
@@ -45,7 +46,7 @@ public class VistaTransferencia {
 	 */
 	public VistaTransferencia(GestorVistas gestor) {
 		this.gestor = gestor;
-		this.controlador = new ControladorBanco();
+		this.controlador = new ControladorBanco(null);
 
 		txtIban = new TextField();
 		txtIban.setPromptText("Introduce IBAN");
@@ -82,9 +83,11 @@ public class VistaTransferencia {
 	 */
 	private void procesarTransferencia() {
 		try {
-			String iban = txtIban.getText();
-			double importe = Double.parseDouble(txtImporte.getText());
-			String resultado = controlador.ejecutarTransferencia(iban, importe);
+			String ibanEmisor = txtIban.getText();
+			String ibanReceptor = txtIban.getText();
+			float importe = Float.parseFloat(txtImporte.getText());
+
+			String resultado = controlador.ejecutarTransferencia(ibanEmisor, ibanReceptor, importe);
 			lblEstado.setText(resultado);
 		} catch (NumberFormatException ex) {
 			mostrarError("El importe debe ser numérico.");

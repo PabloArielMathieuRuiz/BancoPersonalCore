@@ -18,31 +18,29 @@ public class Cliente {
 	private String telefono;
 	private LocalDate fecha_alta;
 
-	public Cliente(int idCliente, String nombre, String apellido, String DNI, String email, String telefono, LocalDate fecha_alta) {  
-		
-		this.idCliente = idCliente ;
-		this.nombre =  nombre;
-		this.apellido =  apellido;
-		this.DNI = DNI ;
-		this.email = email ;
-		this.telefono =  telefono;
-		this.fecha_alta = fecha_alta ;
-		
-		
+	public Cliente(int idCliente, String nombre, String apellido, String DNI, String email, String telefono,
+			LocalDate fecha_alta) {
+
+		this.idCliente = idCliente;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.DNI = DNI;
+		this.email = email;
+		this.telefono = telefono;
+		this.fecha_alta = fecha_alta;
+
 	}
 
-	public Cliente () {
-		
-		this.idCliente = 0 ;
-		this.nombre = "Sin nombre" ;
-		this.apellido = "Sin apellido" ;
-		this.DNI = "Sin DNI" ;
-		this.email = "Sin email" ;
-		this.telefono = "Sin telefono" ;
-		this.fecha_alta = null ;
-		
-		
-		
+	public Cliente() {
+
+		this.idCliente = 0;
+		this.nombre = "Sin nombre";
+		this.apellido = "Sin apellido";
+		this.DNI = "Sin DNI";
+		this.email = "Sin email";
+		this.telefono = "Sin telefono";
+		this.fecha_alta = null;
+
 	}
 
 	public int getIdCliente() {

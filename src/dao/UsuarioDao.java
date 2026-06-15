@@ -6,6 +6,9 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import excepciones.persistencia.ConexionFallidaException;
 import excepciones.persistencia.PersistenceException;
@@ -35,9 +38,11 @@ public class UsuarioDao {
 
 	public Usuario buscarPorUsername(String username) {
 
-		String sql = "SELECT id, username, contraseña, rol, id_cliente FROM usuario WHERE username = ?";
+		String sql = "SELECT id, username, password, rol, id_cliente FROM usuario WHERE username = ?";
 
 		try (Connection con = HikariConexion.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+			ps.setString(1, username);
 
 			try (ResultSet rs = ps.executeQuery()) {
 
@@ -46,13 +51,7 @@ public class UsuarioDao {
 
 					Usuario user = new Usuario();
 
-					// TODO mapeo de los atributos
-
-					user.setIdUsuario(rs.getInt("id"));
-					user.setUsername(rs.getString("username"));
-					user.setContraseña(rs.getString("contraseña"));
-					user.setRol(Rol.valueOf(rs.getString("rol")));
-					user.setIdCliente(rs.getInt("id:cliente"));
+					user = mapearUsuario(rs);
 
 					return user;
 
@@ -61,14 +60,57 @@ public class UsuarioDao {
 				return null;
 
 			} catch (Exception e) {
-				throw new PersistenceException("oejiocje", e);
+				throw new PersistenceException("Error en la persistencia", e);
 			}
 
 		} catch (Exception e) {
+			e.printStackTrace();
 
 			throw new ConexionFallidaException(e);
 		}
 
+	}
+
+	public List<Usuario> verTodosLosUsuario() {
+
+		List<Usuario> lista = new ArrayList<>();
+
+		String sql = "SELECT id, username, password, rol, id_cliente FROM usuario";
+
+		try (Connection con = HikariConexion.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+			try (ResultSet rs = ps.executeQuery()) {
+
+				while (rs.next()) {
+
+					lista.add(mapearUsuario(rs));
+
+				}
+
+			} catch (Exception e) {
+				System.err.println("Error en verTodosLosUsuario: " + e.getMessage());
+			}
+
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return lista;
+
+	}
+
+	private Usuario mapearUsuario(ResultSet rs) throws SQLException {
+
+		Usuario usuario = new Usuario();
+
+		int idUsuario = rs.getInt("id");
+		String username = rs.getString("username");
+		String password = rs.getString("password");
+		Rol rol = Rol.valueOf(rs.getString("rol"));
+		int idCliente = rs.getInt("id_cliente");
+
+		usuario = new Usuario(idUsuario, username, password, rol, idCliente);
+
+		return usuario;
 	}
 
 }

@@ -1,0 +1,77 @@
+2026-06-02 16:32:48 [main] WARN  handler.ErrorHandler - Error de dominio [EER_VAL_003]: El nombre de usuario no es valido
+2026-06-02 16:33:14 [main] WARN  handler.ErrorHandler - Error de dominio [EER_VAL_003]: El nombre de usuario no es valido
+2026-06-02 16:33:56 [main] WARN  handler.ErrorHandler - Error de dominio [EER_VAL_003]: El nombre de usuario no es valido
+2026-06-02 16:35:59 [main] WARN  handler.ErrorHandler - Error de dominio [EER_VAL_003]: El nombre de usuario no es valido
+2026-06-02 16:36:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-02 16:38:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-02 16:38:58 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@75d3a5e0
+2026-06-02 16:38:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 17:30:20 [main] INFO  handler.ErrorHandler - Validación fallida: Unclosed counted closure near index 21
+^[a-z][a-zA-Z0-9._]{3.19}$
+                     ^
+2026-06-03 17:31:01 [main] INFO  handler.ErrorHandler - Validación fallida: Unclosed counted closure near index 21
+^[a-z][a-zA-Z0-9._]{3.19}$
+                     ^
+2026-06-03 17:33:05 [main] INFO  handler.ErrorHandler - Validación fallida: Unclosed counted closure near index 21
+^[a-z][a-zA-Z0-9._]{3.19}$
+                     ^
+2026-06-03 17:35:42 [main] INFO  handler.ErrorHandler - Validación fallida: Unclosed counted closure near index 21
+^[a-z][a-zA-Z0-9._]{3.19}$
+                     ^
+2026-06-03 17:38:05 [main] INFO  handler.ErrorHandler - Validación fallida: Unclosed counted closure near index 21
+^[a-z][a-zA-Z0-9._]{3.19}$
+                     ^
+2026-06-03 17:38:39 [main] INFO  handler.ErrorHandler - Validación fallida: Unclosed counted closure near index 21
+^[a-z][a-zA-Z0-9._]{3.19}$
+                     ^
+2026-06-03 17:39:12 [main] INFO  handler.ErrorHandler - Validación fallida: Unclosed counted closure near index 21
+^[a-z][a-zA-Z0-9._]{3.19}$
+                     ^
+2026-06-03 17:39:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-03 17:39:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@74e28667
+2026-06-03 17:39:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 18:19:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-03 18:19:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@74e28667
+2026-06-03 18:19:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 18:21:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-03 18:21:02 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@74e28667
+2026-06-03 18:21:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 19:19:51 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-03 19:19:51 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-03 19:19:51 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-03 19:19:51 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@663c9e7a
+2026-06-03 19:19:51 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 19:19:51 [main] INFO  handler.ErrorHandler - Validación fallida: Invalid salt revision
+2026-06-03 19:21:32 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-03 19:21:32 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-03 19:21:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-03 19:21:32 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@72bc6553
+2026-06-03 19:21:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 19:21:32 [main] INFO  handler.ErrorHandler - Validación fallida: Invalid salt revision
+2026-06-03 19:22:47 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-03 19:22:47 [main] INFO  services.GestorAutenticador - Intento de login para username: 'laura'
+2026-06-03 19:22:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-03 19:22:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@72bc6553
+2026-06-03 19:22:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 19:22:47 [main] INFO  handler.ErrorHandler - Validación fallida: Invalid salt revision
+2026-06-03 19:23:13 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-03 19:23:13 [main] INFO  services.GestorAutenticador - Intento de login para username: 'antonio'
+2026-06-03 19:23:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-03 19:23:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@72bc6553
+2026-06-03 19:23:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 19:23:13 [main] INFO  handler.ErrorHandler - Validación fallida: Invalid salt revision
+2026-06-03 19:23:50 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-03 19:23:50 [main] INFO  services.GestorAutenticador - Intento de login para username: 'admin'
+2026-06-03 19:23:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-03 19:23:50 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@72bc6553
+2026-06-03 19:23:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 19:23:50 [main] INFO  handler.ErrorHandler - Validación fallida: Invalid salt revision
+2026-06-03 19:24:52 [main] INFO  services.GestorAutenticador - Validando credenciales
+2026-06-03 19:24:52 [main] INFO  services.GestorAutenticador - Intento de login para username: 'carlos'
+2026-06-03 19:24:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Starting...
+2026-06-03 19:24:52 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@72bc6553
+2026-06-03 19:24:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoPersonal-Pool - Start completed.
+2026-06-03 19:30:20 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=4m37s213ms84µs200ns).
+2026-06-03 19:30:24 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=4m37s212ms808µs600ns).
+2026-06-03 19:30:29 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=4m37s199ms876µs).
+2026-06-03 19:30:30 [BancoPersonal-Pool housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - BancoPersonal-Pool - Thread starvation or clock leap detected (housekeeper delta=4m37s212ms692µs100ns).

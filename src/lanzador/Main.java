@@ -14,7 +14,7 @@ import vista.AppJavaFX;
 import vista.VistaConsola;
 
 /**
- * @author Pedro
+ *  @author Pablo
  *
  */
 public class Main {

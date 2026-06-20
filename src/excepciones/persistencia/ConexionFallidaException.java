@@ -6,7 +6,7 @@ package excepciones.persistencia;
 
 
 /**
- * @author Pedro
+ * @author Pablo
  *
  */
 public class ConexionFallidaException extends PersistenceException {

@@ -3,10 +3,15 @@
  */
 package services;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import dao.CuentaDao;
 import dao.MovimientosDao;
+import excepciones.persistencia.PersistenceException;
 import modelo.Cuenta;
 import modelo.TipoMovimiento;
+import util.HikariConexion;
 import validation.Validador;
 
 /**
@@ -33,17 +38,31 @@ public class GestorCuentas {
 		float saldoEmisor = cuentaEmisor.getSaldo() - cantidad;
 		float saldoReceptor = cuentaRepector.getSaldo() + cantidad;
 
-		cuentaDao.actualizarSaldo(ibanEmisor, saldoEmisor);
-		cuentaDao.actualizarSaldo(ibanReceptor, saldoReceptor);
 		
-		movimientosDao.crearMovimientosTransferencia( 
-				TipoMovimiento.TRANSFERENCIA_ENVIADA, 
-				cantidad, 
-				saldoReceptor, 
-				"Transferencia Facil", 
-				cuentaEmisor.getId(), 
-				cuentaRepector.getId()
-				);
+		
+		try (Connection con = HikariConexion.getConnection()) {
+			try {
+			cuentaDao.actualizarSaldo(ibanEmisor, saldoEmisor);
+			cuentaDao.actualizarSaldo(ibanReceptor, saldoReceptor);
+			movimientosDao.crearMovimientosTransferencia( 
+							TipoMovimiento.TRANSFERENCIA_ENVIADA, 
+							cantidad, 
+							saldoReceptor, 
+							"Transferencia Facil", 
+							cuentaEmisor.getId(), 
+							cuentaRepector.getId()
+							);
+			con.commit();
+		} catch (Exception e) {
+			con.rollback();
+			throw new PersistenceException("Error en la transferencia, se han revertido los cambios.");
+		}
+		} catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+		
+		
 
 	}
 }

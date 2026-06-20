@@ -32,7 +32,7 @@ public class CuentaDao {
 	private static final Logger logger = LoggerFactory.getLogger(CuentaDao.class);
 
 	public void actualizarSaldo(String iban, float nuevoSaldo) {
-		String sql = "UPDATE cuenta SET saldo = saldo + ? WHERE iban = ?";
+		String sql = "UPDATE cuenta SET saldo = ? WHERE iban = ?";
 
 		// Uso de try-with-resources (fundamental en JDBC)
 		try (Connection con = HikariConexion.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
@@ -225,7 +225,7 @@ public class CuentaDao {
 
 	public List<Cliente> verCuentasSinAccesoDigital() {
 
-		Cliente cliente = new Cliente();
+		
 		List<Cliente> sinAccesoDigital = new ArrayList<Cliente>();
 		String sql = "SELECT c.id, c.nombre, c.apellidos, c.dni\r\n" + "FROM cliente c\r\n"
 				+ "LEFT JOIN usuario u ON c.id = u.id_cliente\r\n" + "WHERE u.id_cliente IS NULL;";
@@ -235,11 +235,12 @@ public class CuentaDao {
 			try (ResultSet rs = ps.executeQuery()) {
 
 				while (rs.next()) {
+					Cliente cliente = new Cliente();
 
 					cliente.setIdCliente(rs.getInt("id"));
 					cliente.setNombre(rs.getString("nombre"));
 					cliente.setApellido(rs.getString("apellidos"));
-					cliente.setApellido(rs.getString("dni"));
+					cliente.setDNI(rs.getString("dni"));
 
 					sinAccesoDigital.add(cliente);
 				}

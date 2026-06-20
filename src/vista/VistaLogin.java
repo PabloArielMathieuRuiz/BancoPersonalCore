@@ -3,12 +3,15 @@
  */
 package vista;
 
+import controller.ControladorBanco;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import modelo.Rol;
+import modelo.Usuario;
 
 /**
  * La vista de login solo valida credenciales básicas y pide al gestor que
@@ -23,9 +26,11 @@ public class VistaLogin {
 	private final TextField txtUsuario;
 	private final PasswordField txtPassword;
 	private final Label lblMensaje;
+	private final ControladorBanco controller;
 
 	public VistaLogin(GestorVistas gestor) {
 		this.gestor = gestor;
+		this.controller = new ControladorBanco(this);
 
 		txtUsuario = new TextField();
 		txtUsuario.setPromptText("Usuario");
@@ -46,8 +51,11 @@ public class VistaLogin {
 	private void validarLogin() {
 		String usuario = txtUsuario.getText();
 		String pass = txtPassword.getText();
+		
+		Usuario user = controller.validarLogin(usuario, pass);
 
-		if ("admin".equals(usuario) && "1234".equals(pass)) {
+
+		if (user.getRol() == Rol.ADMIN && user.getContraseña().equals(pass)) {
 			gestor.mostrarMenu();
 		} else {
 			lblMensaje.setText("Credenciales incorrectas.");

@@ -7,7 +7,7 @@ package excepciones.base;
  * Clase base para todas las excepciones del dominio bancario. Obliga a definir
  * un mensaje y un código de error único.
  * 
- * @author Pedro
+ * @author Pablo
  *
  */
 public class BancoException extends RuntimeException {

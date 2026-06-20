@@ -6,7 +6,7 @@ package excepciones.negocio;
 import excepciones.base.BancoException;
 
 /**
- * @author Pedro
+ * @author Pablo
  *
  */
 

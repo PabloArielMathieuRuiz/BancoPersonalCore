@@ -1,13 +1,14 @@
 <configuration debug="false">
-    <!--  FORZAMOS RUTA ABSOLUTA  -->
-    <!-- Define la ruta absoluta hacia tu proyecto -->
-    <property name="LOG_FILE" value="C:/Users/Pedro/eclipse-workspace/BancoPersonalCore/logs/app.log" />
+    <property name="LOG_DIR" value="logs" />
+
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_DIR}/banco_personal.log</file>
+        
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/banco_personal.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
+        
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -20,7 +21,7 @@
     </appender>
 
     <root level="INFO">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
     </root>
 </configuration>

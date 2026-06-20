@@ -6,7 +6,8 @@ package excepciones.negocio;
 import excepciones.base.BancoException;
 
 /**
- * 
+ *  
+ * @author Pablo
  */
 public class CuentaNoModificadaException extends BancoException{
 	

@@ -5,7 +5,7 @@ package excepciones.persistencia;
 
 
 /**
- * @author Pedro
+ * @author Pablo
  *
  */
 public class CuentaNoEncontradaException extends PersistenceException {

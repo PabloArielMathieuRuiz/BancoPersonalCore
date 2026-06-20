@@ -4,6 +4,7 @@
 package excepciones.persistencia;
 
 /**
+ * @author Pablo
  * 
  */
 public class TransferenciaFallidaException extends PersistenceException {

@@ -6,7 +6,7 @@ package util;
 /**
  * Clase que da soporte técnico transversal.
  * 
- * @author Pedro
+ * @author Pablo
  *
  */
 public class Formateador {

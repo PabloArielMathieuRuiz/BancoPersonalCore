@@ -19,14 +19,14 @@ import modelo.Usuario;
 /**
  * 
  */
-public class ContrladorAdmin {
+public class ControladorAdmin {
 
 	CuentaDao cuentaDao;
 	MovimientosDao movimientosDao;
 	UsuarioDao usuarioDao;
 	VistaConsola vistaConsola;
 
-	public ContrladorAdmin(VistaConsola vista) {
+	public ControladorAdmin(VistaConsola vista) {
 		cuentaDao = new CuentaDao();
 		movimientosDao = new MovimientosDao();
 		usuarioDao = new UsuarioDao();

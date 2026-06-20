@@ -2,6 +2,9 @@
  * 
  */
 package vista;
+/**
+ * @author Pablo
+ */
 
 import java.util.List;
 import java.util.Scanner;
@@ -13,28 +16,27 @@ import modelo.Cuenta;
 import modelo.Movimiento;
 import modelo.Rol;
 import modelo.Usuario;
-import controller.ContrladorAdmin;
+import controller.ControladorAdmin;
 
 /**
  * Único lugar con input/output
  * 
  * Esta clase es la única que sabe que estamos en una consola.
  * 
- * @author Pedro
  *
  */
 public class VistaConsola implements ErrorHandler.ErrorDisplay {
 
 	private ControladorBanco controller;
 	private Scanner sc;
-	private ContrladorAdmin contrladorAdmin;
+	private ControladorAdmin controladorAdmin;
 
 	public VistaConsola() {
 		// Pasamos 'this' (esta instancia de VistaConsola) al controlador
 		this.controller = new ControladorBanco(this);
 		sc = new Scanner(System.in);
 		// Pasamos 'this' (esta instancia de VistaConsola) al controlador
-		contrladorAdmin = new ContrladorAdmin(this);
+		controladorAdmin = new ControladorAdmin(this);
 	}
 
 	public void iniciar() {
@@ -84,7 +86,6 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 				    mostrarMenu(); // Menú estándar para clientes
 				}
 				
-				mostrarMenu();
 
 			} catch (Exception e) {
 
@@ -209,7 +210,7 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 				salir = true;
 				System.out.println("¡Gracias!");
 			} else {
-				contrladorAdmin.ControlarOpcionesAdmin(opcion);
+				controladorAdmin.ControlarOpcionesAdmin(opcion);
 			}
 		}
 	}

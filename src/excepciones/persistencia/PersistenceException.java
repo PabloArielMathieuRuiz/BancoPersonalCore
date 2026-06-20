@@ -10,7 +10,7 @@ import excepciones.base.BancoException;
  * tengan que gestionar dependencias de JDBC directamente.
  * 
  * 
- * @author Pedro
+ * @author Pablo
  *
  */
 public class PersistenceException extends BancoException {

@@ -5,6 +5,7 @@ package controller;
 
 import services.GestorCuentas;
 import vista.VistaConsola;
+import vista.VistaLogin;
 import services.GestorAutenticador;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import modelo.Usuario;
 /**
  * El controlador no imprime, no captura de teclado, solo coordina.
  * 
- * @author Pedro
+ * @author Pablo
  *
  */
 public class ControladorBanco {
@@ -30,6 +31,7 @@ public class ControladorBanco {
 	private CuentaDao cuentaDao;
 	private VistaConsola vistaConsola;
 	private MovimientosDao movimientoDao;
+	private VistaLogin vistaLogin;
 
 	public ControladorBanco(VistaConsola vista) {
 		servicio = new GestorCuentas();
@@ -37,6 +39,25 @@ public class ControladorBanco {
 		usuarioActual = new Usuario();
 		cuentaDao = new CuentaDao();
 		this.vistaConsola = vista; // este se inicaliza de esta manera para evitar que haya un error de bucle
+		movimientoDao = new MovimientosDao();
+	}
+
+	public ControladorBanco(VistaLogin vistaLogin) {
+		
+		servicio = new GestorCuentas();
+		gestorAutenticador = new GestorAutenticador();
+		usuarioActual = new Usuario();
+		cuentaDao = new CuentaDao();
+		this.vistaLogin = vistaLogin; // este se inicaliza de esta manera para evitar que haya un error de bucle
+		movimientoDao = new MovimientosDao();
+	}
+	
+	public ControladorBanco() {
+		
+		servicio = new GestorCuentas();
+		gestorAutenticador = new GestorAutenticador();
+		usuarioActual = new Usuario();
+		cuentaDao = new CuentaDao();
 		movimientoDao = new MovimientosDao();
 	}
 
@@ -146,7 +167,15 @@ public class ControladorBanco {
 
 		cuentaDao.actualizarSaldo(iban, nuevoSaldo);
 		
-		movimientoDao.crearMovimientos(TipoMovimiento.INGRESO, cantidad, nuevoSaldo, "Retiro Facil", cuenta.getId());
+		movimientoDao.crearMovimientos(TipoMovimiento.REINTEGRO, cantidad, nuevoSaldo, "Retiro Facil", cuenta.getId());
 
+	}
+
+	public VistaLogin getVistaLogin() {
+		return vistaLogin;
+	}
+
+	public void setVistaLogin(VistaLogin vistaLogin) {
+		this.vistaLogin = vistaLogin;
 	}
 }

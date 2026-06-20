@@ -32,7 +32,7 @@ public class GestorAutenticador {
 	}
 
 	public GestorAutenticador(UsuarioDao usuarioDao) {
-		this.usuarioDao = new UsuarioDao();
+		this.usuarioDao = usuarioDao;
 	}
 
 	/**

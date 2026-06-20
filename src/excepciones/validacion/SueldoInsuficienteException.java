@@ -6,6 +6,7 @@ package excepciones.validacion;
 import excepciones.base.BancoException;
 
 /**
+ * @author Pablo
  * 
  */
 public class SueldoInsuficienteException extends BancoException{

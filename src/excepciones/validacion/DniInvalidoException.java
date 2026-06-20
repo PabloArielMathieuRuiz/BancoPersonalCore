@@ -6,7 +6,7 @@ package excepciones.validacion;
 import excepciones.base.BancoException;
 
 /**
- * @author Pedro
+ * @author Pablo
  *
  */
 public class DniInvalidoException extends BancoException {

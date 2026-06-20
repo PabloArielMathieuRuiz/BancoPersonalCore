@@ -44,7 +44,7 @@ import excepciones.base.BancoException;
  * try-catch dentro de los servicios, tendríais cientos de líneas de código
  * duplicado".
  * 
- * @author Pedro
+ * @author Pablo
  *
  */
 public class ErrorHandler {

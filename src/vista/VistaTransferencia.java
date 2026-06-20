@@ -46,7 +46,7 @@ public class VistaTransferencia {
 	 */
 	public VistaTransferencia(GestorVistas gestor) {
 		this.gestor = gestor;
-		this.controlador = new ControladorBanco(null);
+		this.controlador = new ControladorBanco();
 
 		txtIban = new TextField();
 		txtIban.setPromptText("Introduce IBAN");

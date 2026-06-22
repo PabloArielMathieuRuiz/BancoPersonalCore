@@ -2,6 +2,7 @@
  * 
  */
 package vista;
+
 /**
  * @author Pablo
  */
@@ -79,13 +80,12 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 				Usuario user = controller.validarLogin(username, password);
 				loginCorrecto = true;
 				System.out.println("Bienvenido, " + user.getUsername() + " [" + user.getRol() + "]");
-				
+
 				if (user.getRol() == Rol.ADMIN) {
-				    mostrarMenuAdmin();
+					mostrarMenuAdmin();
 				} else if (user.getRol() == Rol.CLIENTE) {
-				    mostrarMenu(); // Menú estándar para clientes
+					mostrarMenu(); // Menú estándar para clientes
 				}
-				
 
 			} catch (Exception e) {
 
@@ -215,13 +215,11 @@ public class VistaConsola implements ErrorHandler.ErrorDisplay {
 		}
 	}
 
-	public void mostrarResumenGlobal(List<Usuario> listaUsuario, 
-			List<Cuenta> usuarioConAccesoDigital,
-			List<Cliente> usuarioSinAccesoDigital, 
-			List<Cuenta> cuentasActivas, 
-			float saldoTotal // hasta aqui son los
-							// parametros ya que es
-							// muy largo
+	public void mostrarResumenGlobal(List<Usuario> listaUsuario, List<Cuenta> usuarioConAccesoDigital,
+			List<Cliente> usuarioSinAccesoDigital, List<Cuenta> cuentasActivas, float saldoTotal // hasta aqui son los
+																									// parametros ya que
+																									// es
+																									// muy largo
 	) {
 
 		boolean salir = false;

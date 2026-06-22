@@ -38,31 +38,23 @@ public class GestorCuentas {
 		float saldoEmisor = cuentaEmisor.getSaldo() - cantidad;
 		float saldoReceptor = cuentaRepector.getSaldo() + cantidad;
 
-		
-		
 		try (Connection con = HikariConexion.getConnection()) {
-			try {
-			cuentaDao.actualizarSaldo(ibanEmisor, saldoEmisor);
-			cuentaDao.actualizarSaldo(ibanReceptor, saldoReceptor);
-			movimientosDao.crearMovimientosTransferencia( 
-							TipoMovimiento.TRANSFERENCIA_ENVIADA, 
-							cantidad, 
-							saldoReceptor, 
-							"Transferencia Facil", 
-							cuentaEmisor.getId(), 
-							cuentaRepector.getId()
-							);
-			con.commit();
-		} catch (Exception e) {
-			con.rollback();
-			throw new PersistenceException("Error en la transferencia, se han revertido los cambios.");
-		}
-		} catch (SQLException e) {
-	        e.printStackTrace();
-	    }
 
-		
-		
+			con.setAutoCommit(false);
+			try {
+				cuentaDao.actualizarSaldo(con, ibanEmisor, saldoEmisor);
+				cuentaDao.actualizarSaldo(con, ibanReceptor, saldoReceptor);
+				movimientosDao.crearMovimientosTransferencia(TipoMovimiento.TRANSFERENCIA_ENVIADA, cantidad,
+						saldoReceptor, "Transferencia Facil", cuentaEmisor.getId(), cuentaRepector.getId());
+
+				con.commit();
+			} catch (Exception e) {
+				con.rollback();
+				throw new PersistenceException("Error en la transferencia, se han revertido los cambios.");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 }

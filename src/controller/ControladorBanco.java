@@ -4,6 +4,7 @@
 package controller;
 
 import services.GestorCuentas;
+import services.GestorMovimientos;
 import vista.VistaConsola;
 import vista.VistaLogin;
 import services.GestorAutenticador;
@@ -15,7 +16,6 @@ import dao.CuentaDao;
 import dao.MovimientosDao;
 import modelo.Cuenta;
 import modelo.Movimiento;
-import modelo.TipoMovimiento;
 import modelo.Usuario;
 
 /**
@@ -32,6 +32,7 @@ public class ControladorBanco {
 	private VistaConsola vistaConsola;
 	private MovimientosDao movimientoDao;
 	private VistaLogin vistaLogin;
+	private GestorMovimientos gestorMovimientos;
 
 	public ControladorBanco(VistaConsola vista) {
 		servicio = new GestorCuentas();
@@ -40,25 +41,30 @@ public class ControladorBanco {
 		cuentaDao = new CuentaDao();
 		this.vistaConsola = vista; // este se inicaliza de esta manera para evitar que haya un error de bucle
 		movimientoDao = new MovimientosDao();
+		gestorMovimientos = new GestorMovimientos();
 	}
 
 	public ControladorBanco(VistaLogin vistaLogin) {
-		
+
 		servicio = new GestorCuentas();
 		gestorAutenticador = new GestorAutenticador();
 		usuarioActual = new Usuario();
 		cuentaDao = new CuentaDao();
 		this.vistaLogin = vistaLogin; // este se inicaliza de esta manera para evitar que haya un error de bucle
 		movimientoDao = new MovimientosDao();
+		gestorMovimientos = new GestorMovimientos();
+
 	}
-	
+
 	public ControladorBanco() {
-		
+
 		servicio = new GestorCuentas();
 		gestorAutenticador = new GestorAutenticador();
 		usuarioActual = new Usuario();
 		cuentaDao = new CuentaDao();
 		movimientoDao = new MovimientosDao();
+		gestorMovimientos = new GestorMovimientos();
+
 	}
 
 	/**
@@ -145,29 +151,13 @@ public class ControladorBanco {
 
 	public void ingresar(String iban, float cantidad) {
 
-		Cuenta cuenta = cuentaDao.obtenerCuentaPorIban(iban);
-
-		gestorAutenticador.auntetificarIngresar(iban, cantidad);
-
-		float nuevoSaldo = cuenta.getSaldo() + cantidad;
-
-		cuentaDao.actualizarSaldo(iban, nuevoSaldo);
-		
-		movimientoDao.crearMovimientos(TipoMovimiento.INGRESO, cantidad, nuevoSaldo, "Ingreso Facil", cuenta.getId());
+		gestorMovimientos.ingresar(iban, cantidad);
 
 	}
 
 	public void retirar(String iban, float cantidad) {
 
-		Cuenta cuenta = cuentaDao.obtenerCuentaPorIban(iban);
-
-		gestorAutenticador.auntetificarRetirar(iban, cantidad, cuenta);
-
-		float nuevoSaldo = cuenta.getSaldo() - cantidad;
-
-		cuentaDao.actualizarSaldo(iban, nuevoSaldo);
-		
-		movimientoDao.crearMovimientos(TipoMovimiento.REINTEGRO, cantidad, nuevoSaldo, "Retiro Facil", cuenta.getId());
+		gestorMovimientos.retirar(iban, cantidad);
 
 	}
 
